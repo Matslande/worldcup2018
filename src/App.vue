@@ -2,6 +2,7 @@
   <div id="app">
     <a href="/">Kamper</a>
     <a href="#/tabell">Tabell</a>
+    <a href="#/live">Live</a>
     <router-view/>
   </div>
 </template>

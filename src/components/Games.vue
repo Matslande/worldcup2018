@@ -22,6 +22,7 @@
       <td>{{ game['fields']['Bjørn'] }}</td>
       <td>{{ game['fields']['Daniel'] }}</td>
       <td>{{ game['fields']['Anne-Merethe'] }}</td>
+      <td>{{ game['fields']['Date'] }}</td>
     </tr>
   </tbody>
 </table>
