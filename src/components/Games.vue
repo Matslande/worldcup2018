@@ -1,41 +1,50 @@
 <template>
 <div>
+    <div v-for="game in games" :key="game.id" >
+      <div class="games--header">
+        <h1> {{ game['fields']['Games'] }}</h1>
+        <p> Date: <br> <strong>{{ game['fields']['Date'] }}</strong></p>
+        <h1 class="final--result">{{ game['fields']['Ekte Resultat'] }}</h1>
+      </div>
+<ul class="list--games">
 
-  <table>
-  <thead>
-    <tr>
-      <td>Kamper</td>
-      <th>Mats</th>
-      <th>Erling</th>
-      <th>Are</th>
-      <th>Bjørn</th>
-      <th>Daniel</th>
-      <th>Anne-Merethe</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr v-for="game in games" :key="game.id">
-      <th>{{ game['fields']['Games'] }}</th>
-      <td>{{ game['fields']['Mats'] }}</td>
-      <td>{{ game['fields']['Erling'] }}</td>
-      <td>{{ game['fields']['Are'] }}</td>
-      <td>{{ game['fields']['Bjørn'] }}</td>
-      <td>{{ game['fields']['Daniel'] }}</td>
-      <td>{{ game['fields']['Anne-Merethe'] }}</td>
-      <td>{{ game['fields']['Date'] }}</td>
-    </tr>
-  </tbody>
-</table>
-        <!-- <ul class="games">
-            <li v-for="game in games" :key="game.id">
-                <h3>{{ game['fields']['Games'] }}</h3>
-                <p>{{ game['fields']['Mats'] }}</p>
-                <p>{{ game['fields']['Erling'] }}</p>
-                <p>{{ game['fields']['Are'] }}</p>
-                <p>{{ game['fields']['Bjørn'] }}</p>
-                <p>{{ game['fields']['Daniel'] }}</p>
-            </li>
-        </ul> -->
+      <li class="list--games__item">
+
+        <img src="https://cdn.sanity.io/images/l3oee2le/production/CNSnpYXCptJyrgWRrTUdYnEG-1716x2289.jpg?fit=crop&crop=focalpoint&w=80&h=80" alt="">
+        <h2>{{ game['fields']['Mats'] }}</h2>
+        {{ Deltakere['fields']['Hvem hadde rett'] }}
+
+      </li>
+      <li class="list--games__item">
+        <img src="https://cdn.sanity.io/images/l3oee2le/production/5klx83z34i_oOGGI2GfLPzCMQQjwdG1CiQ4-800x800.png?fit=crop&crop=focalpoint&w=80&h=80" alt="">
+        <h2>{{ game['fields']['Erling'] }}</h2>
+
+      </li>
+      <li class="list--games__item">
+        <img src="https://cdn.sanity.io/images/l3oee2le/production/vxDWFNFTv2ZX5uYyfDfPqEKd-539x717.jpg?fit=crop&crop=focalpoint&w=80&h=80" alt="">
+        <h2>{{ game['fields']['Are'] }}</h2>
+
+      </li>
+      <li class="list--games__item">
+        <img src="https://cdn.sanity.io/images/l3oee2le/production/5klx83z34i_eKXrwB9RajtW4uIx95CKtKpG-1932x1931.jpg?fit=crop&crop=focalpoint&w=80&h=80" alt="">
+        <h2>{{ game['fields']['Bjørn'] }}</h2>
+
+      </li>
+      <li class="list--games__item">
+        <img src="https://cdn.sanity.io/images/l3oee2le/production/9HkCMPOsdMDLzMhF4hJZQJWf-790x1186.jpg?fit=crop&crop=focalpoint&w=80&h=80" alt="">
+        <h2>{{ game['fields']['Daniel'] }}</h2>
+
+      </li>
+      <li class="list--games__item">
+        <img src="https://cdn.sanity.io/images/l3oee2le/production/haP8IHeaToxc5d9fqGVn9LeU-2048x1365.jpg?fit=crop&crop=focalpoint&w=80&h=80" alt="">
+        <h2>{{ game['fields']['Anne-Merethe'] }}</h2>
+
+      </li>
+</ul>
+
+    </div>
+
+
 </div>
 </template>
 
@@ -78,36 +87,39 @@ export default {
 </script>
 
 <style scoped>
-table {
-  width: 100%;
-  border-top: 1px solid #ccc;
-  border-left: 1px solid #ccc;
-  border-collapse: collapse;
-  margin-bottom: 1em;
+.list--games {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
-table th,
-table td {
-  padding: 0.5em 1em;
-  border-bottom: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-  white-space: pre;
-  text-align: left;
+.true {
+  background-color: green;
 }
-table thead th,
-table tbody td {
-  text-align: left;
+.true--text {
+  font-size: 0px;
 }
-table thead {
-  color: white;
-  background: #0cf;
+.list--games__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
-table thead th {
-  padding: 1em;
+.list--games__item img {
+  width: 80px;
+  height: 80px;
 }
-table[data-comparing="active"] tbody th {
-  border-bottom: none;
-  font-size: 0.75em;
-  color: #767676;
-  padding-bottom: 0;
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #29cb7e;
+  text-align: center;
+}
+.final--result {
+}
+.games--header {
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid #f8f7f5;
 }
 </style>
