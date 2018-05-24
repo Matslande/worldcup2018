@@ -3,6 +3,7 @@
     <a href="/">Kamper</a>
     <a href="#/tabell">Tabell</a>
     <a href="#/live">Live</a>
+    <a href="#/iframe">Iframe</a>
     <router-view/>
   </div>
 </template>
